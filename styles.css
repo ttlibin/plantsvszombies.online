@@ -1,0 +1,617 @@
+/* ============================================
+   Plants vs Zombies Website - Classic Green Theme
+   ============================================ */
+
+/* CSS Variables for Classic Green Theme */
+:root {
+    --primary-color: #6B8E23;
+    --secondary-color: #FFD700;
+    --accent-color: #8B4513;
+    --cta-color: #FF6347;
+    --link-color: #4169E1;
+    --bg-main: #F5F5DC;
+    --bg-content: #FFFFFF;
+    --bg-card: #F0F8E8;
+    --text-primary: #2F4F2F;
+    --text-body: #333333;
+    --text-secondary: #666666;
+    --text-white: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.2);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+    color: var(--text-primary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1E3A8A;
+    text-decoration: underline;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.nav-brand {
+    flex-shrink: 0;
+}
+
+.nav-brand a {
+    color: var(--text-white);
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+nav li a {
+    color: var(--text-white);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+nav li a.active {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #8B9A3C 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-white);
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.hero h1 {
+    color: var(--text-white);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Game Iframe Container */
+.game-container {
+    background-color: var(--bg-content);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.game-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 900px;
+}
+
+.game-container iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+    display: block;
+}
+
+/* Fullscreen Button */
+.fullscreen-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(107, 142, 35, 0.9);
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 0;
+}
+
+/* Arrow base styles */
+.fullscreen-btn .arrow {
+    position: absolute;
+    background-color: currentColor;
+    display: block;
+}
+
+/* Top Left - Horizontal line */
+.fullscreen-btn .arrow-tl-h {
+    width: 10px;
+    height: 2px;
+    top: 10px;
+    left: 10px;
+}
+
+/* Top Left - Vertical line */
+.fullscreen-btn .arrow-tl-v {
+    width: 2px;
+    height: 10px;
+    top: 10px;
+    left: 10px;
+}
+
+/* Top Right - Horizontal line */
+.fullscreen-btn .arrow-tr-h {
+    width: 10px;
+    height: 2px;
+    top: 10px;
+    right: 10px;
+}
+
+/* Top Right - Vertical line */
+.fullscreen-btn .arrow-tr-v {
+    width: 2px;
+    height: 10px;
+    top: 10px;
+    right: 10px;
+}
+
+/* Bottom Left - Horizontal line */
+.fullscreen-btn .arrow-bl-h {
+    width: 10px;
+    height: 2px;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* Bottom Left - Vertical line */
+.fullscreen-btn .arrow-bl-v {
+    width: 2px;
+    height: 10px;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* Bottom Right - Horizontal line */
+.fullscreen-btn .arrow-br-h {
+    width: 10px;
+    height: 2px;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Bottom Right - Vertical line */
+.fullscreen-btn .arrow-br-v {
+    width: 2px;
+    height: 10px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.fullscreen-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px var(--shadow-hover);
+}
+
+.fullscreen-btn:active {
+    transform: scale(0.95);
+}
+
+.fullscreen-icon {
+    display: none;
+}
+
+/* Fullscreen Mode Styles */
+.game-wrapper.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    z-index: 9999 !important;
+    background-color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.game-wrapper.fullscreen iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Ensure body and html don't scroll when in fullscreen */
+body.fullscreen-mode,
+html.fullscreen-mode {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
+/* Content Sections */
+.content-section {
+    background-color: var(--bg-content);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.content-section p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.content-section ul, .content-section ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-hover);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* CTA Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--cta-color);
+    color: var(--text-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #FFC700;
+    color: var(--text-primary);
+}
+
+/* FAQ Section */
+.faq-item {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: #E8F5E0;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.faq-question {
+    font-weight: bold;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+    color: var(--text-body);
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: var(--bg-content);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: var(--secondary-color);
+}
+
+footer a:hover {
+    color: var(--text-white);
+}
+
+/* Highlight Text */
+.highlight {
+    background-color: var(--secondary-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .game-container iframe {
+        height: 400px;
+    }
+    
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .nav-brand {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .nav-brand a {
+        font-size: 1.3rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    nav li a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .content-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px var(--shadow);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+    color: var(--text-white);
+}
+
